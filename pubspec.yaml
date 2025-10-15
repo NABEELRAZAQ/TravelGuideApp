@@ -1,0 +1,28 @@
+name: travel_guide_app
+description: A simple Flutter Travel Guide Application for Assignment #2.
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/eiffel.jpg
+    - assets/images/great_wall.jpg
+    - assets/images/colosseum.jpg
+    - assets/images/liberty.jpg
+    - assets/images/tajmahal.jpg
+    - assets/images/sydney.jpg
