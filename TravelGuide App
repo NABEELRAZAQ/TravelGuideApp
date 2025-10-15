@@ -1,0 +1,17 @@
+TravelGuideApp/
+│
+├── lib/
+│   └── main.dart
+│
+├── assets/
+│   ├── images/
+│   │   ├── eiffel.jpg
+│   │   ├── great_wall.jpg
+│   │   ├── colosseum.jpg
+│   │   ├── liberty.jpg
+│   │   ├── tajmahal.jpg
+│   │   └── sydney.jpg
+│
+├── pubspec.yaml
+│
+└── README.md
