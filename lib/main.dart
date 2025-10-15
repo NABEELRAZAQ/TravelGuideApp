@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+ffleimport 'package:flutter/material.dart';
 
 void main() {
   runApp(TravelGuideApp());
@@ -162,9 +162,9 @@ class ListScreen extends StatelessWidget {
 
 class AboutScreen extends StatelessWidget {
   final List<Map<String, String>> attractions = [
-    {'image': 'https://images.unsplash.com/photo-1505761671935-60b3a7427bad', 'name': 'Eiffel Tower'},
-    {'image': 'https://images.unsplash.com/photo-1576402187878-974f70b73695', 'name': 'Great Wall of China'},
-    {'image': 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee', 'name': 'Colosseum'},
+    {'image': 'https://images.unsplash.com/photo-1505761671935-60b3a7427bad', 'eiffle,jpg': 'Eiffel Tower'},
+    {'image': 'https://images.unsplash.com/photo-1576402187878-974f70b73695', 'tajmahal,jpg': 'Great Wall of China'},
+    {'image': 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee', 'dreatwall,jpg': 'Colosseum'},
     {'image': 'https://images.unsplash.com/photo-1518684079-3c830dcef090', 'name': 'Statue of Liberty'},
     {'image': 'https://images.unsplash.com/photo-1509475826633-fed577a2c71b', 'name': 'Taj Mahal'},
     {'image': 'https://images.unsplash.com/photo-1530521954074-e64f6810b32d', 'name': 'Sydney Opera House'},
