@@ -1,0 +1,192 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(ProfileApp());
+}
+
+class ProfileApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'ProfileApp',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
+        useMaterial3: true,
+      ),
+      home: ProfileScreen(),
+    );
+  }
+}
+
+class ProfileScreen extends StatefulWidget {
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  final TextEditingController _usernameController = TextEditingController();
+  String? _errorMessage;
+
+  @override
+  Widget build(BuildContext context) {
+    // Detect screen orientation
+    String orientation = MediaQuery.of(context).orientation == Orientation.portrait
+        ? "Portrait"
+        : "Landscape";
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Profile Screen",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.teal,
+        foregroundColor: Colors.white,
+      ),
+
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(18.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // 👤 Profile Icon (instead of image)
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.teal.shade100,
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.teal.withOpacity(0.3),
+                      blurRadius: 10,
+                      offset: const Offset(0, 5),
+                    ),
+                  ],
+                ),
+                child: const Icon(
+                  Icons.account_circle_rounded,
+                  size: 100,
+                  color: Colors.teal,
+                ),
+              ),
+              const SizedBox(height: 18),
+
+              // RichText: Name + Email
+              RichText(
+                textAlign: TextAlign.center,
+                text: const TextSpan(
+                  style: TextStyle(color: Colors.black87),
+                  children: [
+                    TextSpan(
+                      text: "Noor Ud Din\n",
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text: "nooruddin@example.com",
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              // Row with Buttons
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton.icon(
+                    onPressed: () {},
+                    icon: const Icon(Icons.person_add_alt),
+                    label: const Text("Follow"),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.teal,
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  OutlinedButton.icon(
+                    onPressed: () {},
+                    icon: const Icon(Icons.email_outlined),
+                    label: const Text("Message"),
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: Colors.teal,
+                      side: const BorderSide(color: Colors.teal),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+
+              // Description Container
+              Container(
+                padding: const EdgeInsets.all(14),
+                decoration: BoxDecoration(
+                  color: Colors.teal.shade50,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Text(
+                  "I am a passionate Flutter developer who enjoys designing modern, responsive mobile UIs.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 15, color: Colors.black87),
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              // TextField for username
+              TextField(
+                controller: _usernameController,
+                decoration: InputDecoration(
+                  labelText: "Enter Username",
+                  border: const OutlineInputBorder(),
+                  prefixIcon: const Icon(Icons.edit, color: Colors.teal),
+                  errorText: _errorMessage,
+                ),
+              ),
+              const SizedBox(height: 12),
+
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    if (_usernameController.text.trim().isEmpty) {
+                      _errorMessage = "Username cannot be empty!";
+                    } else {
+                      _errorMessage = null;
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text("Username saved: ${_usernameController.text}"),
+                          backgroundColor: Colors.teal,
+                        ),
+                      );
+                    }
+                  });
+                },
+                child: const Text("Save Username"),
+              ),
+              const SizedBox(height: 20),
+
+              // Orientation Display
+              Text(
+                "Current Orientation: $orientation",
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  color: Colors.teal,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
